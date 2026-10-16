@@ -1,62 +1,213 @@
-# Baltimore City Intelligence Engine (BCIE)
+# B-MORE INSIGHT
 
-Go terminal capstone analyzing Baltimore public BPD arrests and 311 requests using concurrent CSV ingestion and geographic grid-cell matching.
+### Baltimore City Municipal Intelligence Engine
 
-## Requirements
-- macOS, Go 1.22 or newer (https://go.dev/dl/)
-- Internet access for real-data mode only
-- No external Go dependencies
+**Built with Go | Public Data Analysis | Concurrent Processing**
 
-## Run
-```sh
-chmod +x run.sh
-./run.sh                   # bundled synthetic demonstration records
-./run.sh --real            # downloads two public CSV datasets (may be large)
-go build -o bcie ./cmd/bcie
-./bcie -arrests data/arrests_sample.csv -requests data/requests_sample.csv
+---
+
+## Project Overview
+
+The Go programming language was used to create the command-line data analysis software B-MORE INSIGHT. The study looks both 311 service requests and publicly accessible Baltimore City arrest data to find trends in local government activities across different regions.
+
+The objective is to provide a structured, interactive terminal interface that facilitates the exploration and comprehension of city data.
+
+B-MORE INSIGHT prioritizes understandable text-based visualizations, simple comparisons, and concise summaries above complex dashboards.
+
+Baltimore's identity serves as the inspiration for the application's unique orange-and-tan terminal interface.
+
+## Project Objectives
+
+B-MORE INSIGHT addresses five research questions:
+
+1. Which geographic areas have the highest arrest activity?
+2. Which areas generate the highest volume of 311 service requests?
+3. Where do arrest activity and infrastructure-related complaints overlap?
+4. Which areas show the highest combined municipal activity?
+5. Which areas have the most unresolved 311 service requests?
+
+These analyses describe patterns in the available records and do not establish causal relationships.
+
+## Key Features
+
+- **Concurrent Data Processing:** Uses Go goroutines and worker pools to process CSV records.
+- **Public Dataset Integration:** Supports Baltimore City arrest and 311 service request data.
+- **Geographic Analysis:** Groups records into approximate geographic grid cells.
+- **Interactive Main Menu:** Allows users to select individual analyses.
+- **Text-Based Visualizations:** Displays ranked results using ASCII bar charts.
+- **Report Generation:** Saves a comprehensive analysis report.
+- **Input Validation:** Handles invalid coordinates and tracks skipped records.
+- **Custom Terminal Design:** Uses warm orange-and-tan colors for a clean interface.
+
+## Technologies Used
+
+| Technology          | Purpose                                     |
+| ------------------- | ------------------------------------------- |
+| Go                  | Core programming language                   |
+| Goroutines          | Concurrent execution                        |
+| Channels            | Worker communication                        |
+| Go standard library | CSV parsing, HTTP requests, file operations |
+| Git and GitHub      | Version control and project hosting         |
+| VS Code             | Development environment                     |
+
+## Project Structure
+
+```text
+baltimore-intelligence-engine/
+├── cmd/
+│   └── bcie/
+│       └── main.go
+├── data/
+│   ├── arrests.csv
+│   └── requests.csv
+├── internal/
+│   ├── engine/
+│   │   ├── engine.go
+│   │   └── engine_test.go
+│   └── ui/
+│       └── menu.go
+├── reports/
+│   └── summary.txt
+├── .gitignore
+├── go.mod
+├── README.md
+└── run.sh
+```
+
+*Dataset filenames above are the recommended names. Adjust them to match the actual files in the repository.*
+
+## Getting Started
+
+### Requirements
+
+- Go installed on your computer
+- Terminal or command-line environment
+- Baltimore City arrest and 311 datasets in CSV format
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Mekhil1/baltimore-Intelligent-engine.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd baltimore-Intelligent-engine
+```
+
+### Running the Application
+
+Run the application using locally stored CSV files:
+
+```bash
+go run ./cmd/bcie \
+  -arrests data/arrests.csv \
+  -requests data/requests.csv
+```
+
+The application processes both datasets, generates an analysis report, and opens the interactive terminal menu.
+
+If your CSV files have different names, update the file paths accordingly.
+
+## Interactive Main Menu
+
+The application provides the following options:
+
+```text
+----------------------------------------
+             B-MORE INSIGHT
+----------------------------------------
+
+      Baltimore City Data Analysis
+      Municipal Intelligence Engine
+
+MAIN MENU
+
+  1. Arrest Data Summary
+  2. 311 Service Requests
+  3. Compare Both Datasets
+  4. Resource Priority Analysis
+  5. Unresolved Service Requests
+  6. View Full Report
+  0. Exit
+
+Select an option:
+```
+
+Each analysis displays ranked geographic areas with corresponding counts and text-based visualizations.
+
+## Data Sources
+
+The project uses publicly available datasets from the Baltimore City Open Data portal.
+
+**Baltimore City Arrest Data**
+
+[https://data.baltimorecity.gov/api/download/v1/items/619ec10c14b346f784a5a07bad4c43cd/csv?layers=0](https://data.baltimorecity.gov/api/download/v1/items/619ec10c14b346f784a5a07bad4c43cd/csv?layers=0)
+
+**Baltimore City 311 Service Requests**
+
+[https://data.baltimorecity.gov/api/download/v1/items/de0ddaef68624e32a84e5197c5ac1829/csv?layers=0](https://data.baltimorecity.gov/api/download/v1/items/de0ddaef68624e32a84e5197c5ac1829/csv?layers=0)
+
+The application supports local CSV files and includes functionality for downloading public datasets.
+
+Large datasets may require smaller exports due to download-size limitations.
+
+## Data Analysis Methodology
+
+The application processes geographic coordinates and groups valid records into approximately 0.01-degree grid cells.
+
+For each geographic cell, the engine calculates:
+
+- Total arrest records
+- Total 311 service requests
+- Infrastructure-related service requests
+- Unresolved service requests
+- Monthly record counts
+
+The results are ranked according to the selected research question.
+
+**Important limitations:**
+
+- Geographic grid cells are not official Baltimore neighborhoods.
+- Counts are not normalized by population.
+- Arrest records do not represent all crime incidents.
+- Service request activity may reflect reporting behavior.
+- Overlapping patterns do not demonstrate causation.
+
+## Testing and Verification
+
+The application uses Go's built-in testing and validation tools.
+
+Run the following commands from the project root:
+
+```bash
+go fmt ./...
+go vet ./...
 go test ./...
 go test -race ./...
+go build ./...
 ```
 
-Real-data URLs:
-- BPD arrests: https://data.baltimorecity.gov/api/download/v1/items/619ec10c14b346f784a5a07bad4c43cd/csv?layers=0
-- 311 2026: https://data.baltimorecity.gov/api/download/v1/items/de0ddaef68624e32a84e5197c5ac1829/csv?layers=0
+These checks were successfully executed during development.
 
-If the ArcGIS export endpoint changes, manually download both datasets as CSV from their public item pages and run:
-```sh
-./bcie -arrests /path/to/arrests.csv -requests /path/to/311.csv
-```
+## Project Purpose
 
-## Architecture
-- `cmd/bcie/main.go`: CLI, parallel dataset loading, reporting
-- `internal/engine/engine.go`: CSV ingestion, bounded worker queues, normalization, grid-cell matching, aggregations, terminal visualization
-- `internal/engine/engine_test.go`: deterministic pipeline test
-- `data/*_sample.csv`: synthetic fixtures (not actual Baltimore records)
-- `reports/summary.txt`: generated terminal report
+B-MORE INSIGHT demonstrates how concurrent programming, data processing, and geographic aggregation can be combined to explore real-world municipal datasets.
 
-Each dataset is processed concurrently; within each CSV, a single producer streams rows to a bounded channel and worker goroutines normalize rows. Worker results are collected into a separate channel. Aggregation occurs after workers finish, avoiding shared mutable map writes. Memory is proportional to retained normalized records; downloads are capped at 150 MiB each. Go's garbage collector manages heap memory. Temporary downloaded CSVs are removed after use.
+The project emphasizes efficient processing, readable output, responsible interpretation of public data, and a user-friendly command-line experience.
 
-## Five stakeholder analyses
-1. Highest combined arrest and 311 record volumes by grid cell
-2. Infrastructure requests in grid cells that also contain arrests
-3. Combined-volume resource-attention ranking (descriptive, not a validated priority score)
-4. Arrest concentrations by grid cell
-5. Unresolved 311 request concentrations by grid cell
+## Developer
 
-## Interpretation and limitations
-- Cells are 0.01-degree latitude/longitude bins, **not official neighborhoods**. Their ground area varies by latitude.
-- Counts are not adjusted for population, reporting propensity, or geographic area.
-- Arrests are not equivalent to reported crimes. The sources may cover different periods; compare only overlapping dates when making time-based claims.
-- An absent/unknown 311 status is not counted as open; the classification of non-closed statuses is approximate.
-- Rows without usable latitude/longitude are excluded and counted as skipped.
-- No causal inference is supported.
-- The 2026 311 feed changes over time. Dataset schemas and public export URLs can change; verify downloads before submitting.
-- Demo CSVs are synthetic and should never be presented as real municipal results.
+**Mekhi Lewis**
 
-## Verification checklist
-1. `go version` reports Go 1.22+.
-2. `go test ./...` passes.
-3. `go test -race ./...` passes.
-4. `./run.sh` produces five titled analyses and `reports/summary.txt`.
-5. `./run.sh --real` downloads and parses two genuine datasets; inspect any export or schema errors.
-6. Archive source, sample CSVs, tests, run script, and README; exclude large downloaded files and generated binaries.
+Computer Science Student
+Morgan State University
+
+**Project:** B-MORE INSIGHT — Baltimore City Municipal Intelligence Engine
+
+---
+
+*Built for Baltimore. Powered by data.*
