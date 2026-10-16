@@ -1,0 +1,125 @@
+B-MORE INSIGHT
+Baltimore City Intelligence Report
+=================================================================
+Arrests: 224726 | 311 Requests: 7069
+Skipped Records: 177997 | Grid Cells: 357
+
+Q1: Highest Arrest Activity
+-----------------------------------------------------------------
+39.30,-76.64    7562 ##############################
+  Arrests: 7562 | 311: 96 | Infrastructure: 19 | Open: 0
+39.29,-76.62    7045 ###########################   
+  Arrests: 7045 | 311: 114 | Infrastructure: 14 | Open: 5
+39.30,-76.65    6946 ###########################   
+  Arrests: 6946 | 311: 84 | Infrastructure: 23 | Open: 2
+39.28,-76.65    6914 ###########################   
+  Arrests: 6914 | 311: 96 | Infrastructure: 24 | Open: 3
+39.29,-76.63    6330 #########################     
+  Arrests: 6330 | 311: 28 | Infrastructure: 6 | Open: 0
+39.29,-76.59    6039 #######################       
+  Arrests: 6039 | 311: 149 | Infrastructure: 27 | Open: 1
+39.30,-76.59    5671 ######################        
+  Arrests: 5671 | 311: 105 | Infrastructure: 21 | Open: 0
+39.28,-76.66    5647 ######################        
+  Arrests: 5647 | 311: 71 | Infrastructure: 23 | Open: 3
+
+Grid cells are approximate, not official neighborhoods.
+Counts are not population-normalized.
+Arrests do not represent all crime incidents.
+No causal relationship is implied.
+
+Q2: Highest 311 Request Volume
+-----------------------------------------------------------------
+39.29,-76.58     172 ##############################
+  Arrests: 5072 | 311: 172 | Infrastructure: 40 | Open: 1
+39.29,-76.59     149 #########################     
+  Arrests: 6039 | 311: 149 | Infrastructure: 27 | Open: 1
+39.28,-76.64     130 ######################        
+  Arrests: 4273 | 311: 130 | Infrastructure: 29 | Open: 2
+39.28,-76.58     127 ######################        
+  Arrests: 606 | 311: 127 | Infrastructure: 16 | Open: 1
+39.29,-76.64     123 #####################         
+  Arrests: 4235 | 311: 123 | Infrastructure: 26 | Open: 1
+39.31,-76.60     116 ####################          
+  Arrests: 4415 | 311: 116 | Infrastructure: 30 | Open: 1
+39.29,-76.62     114 ###################           
+  Arrests: 7045 | 311: 114 | Infrastructure: 14 | Open: 5
+39.31,-76.61     106 ##################            
+  Arrests: 3371 | 311: 106 | Infrastructure: 49 | Open: 2
+
+Grid cells are approximate, not official neighborhoods.
+Counts are not population-normalized.
+Arrests do not represent all crime incidents.
+No causal relationship is implied.
+
+Q3: Arrest and Infrastructure Overlap
+-----------------------------------------------------------------
+39.31,-76.61      49 ##############################
+  Arrests: 3371 | 311: 106 | Infrastructure: 49 | Open: 2
+39.29,-76.58      40 ########################      
+  Arrests: 5072 | 311: 172 | Infrastructure: 40 | Open: 1
+39.31,-76.60      30 ##################            
+  Arrests: 4415 | 311: 116 | Infrastructure: 30 | Open: 1
+39.28,-76.64      29 #################             
+  Arrests: 4273 | 311: 130 | Infrastructure: 29 | Open: 2
+39.29,-76.59      27 ################              
+  Arrests: 6039 | 311: 149 | Infrastructure: 27 | Open: 1
+39.29,-76.64      26 ###############               
+  Arrests: 4235 | 311: 123 | Infrastructure: 26 | Open: 1
+39.29,-76.69      26 ###############               
+  Arrests: 1117 | 311: 68 | Infrastructure: 26 | Open: 1
+39.30,-76.67      25 ###############               
+  Arrests: 2832 | 311: 102 | Infrastructure: 25 | Open: 1
+
+Grid cells are approximate, not official neighborhoods.
+Counts are not population-normalized.
+Arrests do not represent all crime incidents.
+No causal relationship is implied.
+
+Q4: Combined Municipal Activity
+-----------------------------------------------------------------
+39.30,-76.64    7658 ##############################
+  Arrests: 7562 | 311: 96 | Infrastructure: 19 | Open: 0
+39.29,-76.62    7159 ############################  
+  Arrests: 7045 | 311: 114 | Infrastructure: 14 | Open: 5
+39.30,-76.65    7030 ###########################   
+  Arrests: 6946 | 311: 84 | Infrastructure: 23 | Open: 2
+39.28,-76.65    7010 ###########################   
+  Arrests: 6914 | 311: 96 | Infrastructure: 24 | Open: 3
+39.29,-76.63    6358 ########################      
+  Arrests: 6330 | 311: 28 | Infrastructure: 6 | Open: 0
+39.29,-76.59    6188 ########################      
+  Arrests: 6039 | 311: 149 | Infrastructure: 27 | Open: 1
+39.30,-76.59    5776 ######################        
+  Arrests: 5671 | 311: 105 | Infrastructure: 21 | Open: 0
+39.28,-76.66    5718 ######################        
+  Arrests: 5647 | 311: 71 | Infrastructure: 23 | Open: 3
+
+Grid cells are approximate, not official neighborhoods.
+Counts are not population-normalized.
+Arrests do not represent all crime incidents.
+No causal relationship is implied.
+
+Q5: Unresolved 311 Requests
+-----------------------------------------------------------------
+39.29,-76.62       5 ##############################
+  Arrests: 7045 | 311: 114 | Infrastructure: 14 | Open: 5
+39.29,-76.67       5 ##############################
+  Arrests: 2361 | 311: 56 | Infrastructure: 15 | Open: 5
+39.29,-76.60       4 ########################      
+  Arrests: 2902 | 311: 50 | Infrastructure: 9 | Open: 4
+39.32,-76.61       4 ########################      
+  Arrests: 1525 | 311: 50 | Infrastructure: 18 | Open: 4
+39.28,-76.65       3 ##################            
+  Arrests: 6914 | 311: 96 | Infrastructure: 24 | Open: 3
+39.28,-76.66       3 ##################            
+  Arrests: 5647 | 311: 71 | Infrastructure: 23 | Open: 3
+39.31,-76.66       3 ##################            
+  Arrests: 1823 | 311: 35 | Infrastructure: 5 | Open: 3
+39.32,-76.62       3 ##################            
+  Arrests: 822 | 311: 42 | Infrastructure: 14 | Open: 3
+
+Grid cells are approximate, not official neighborhoods.
+Counts are not population-normalized.
+Arrests do not represent all crime incidents.
+No causal relationship is implied.
